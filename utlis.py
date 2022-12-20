@@ -68,12 +68,12 @@ def getCornerPoints(cont):
 def splitBoxes(img):
     boxes = []
     rows = np.vsplit(img,10) #baris
-    cv2.imshow("row",rows[2])
+   # cv2.imshow("row",rows[2])
     for r in rows:
         cols = np.hsplit(r,5)
         for box in cols:
             boxes.append(box)
-            cv2.imshow("split",box)
+            #cv2.imshow("split",box)
     return boxes
 
 def drawGrid(img,qNum,nChoices):
@@ -118,13 +118,13 @@ def reorder(myPoints):
     myPointsNew= np.zeros((4,1,2),np.int32)
 
     add = myPoints.sum(1)
-    print("poin", myPoints)
-    print("add", add)
+    #print("poin", myPoints)
+    #print("add", add)
     
     myPointsNew[0] = myPoints[np.argmin(add)] # 0,0
     myPointsNew[3] = myPoints[np.argmax(add)] # h,w
     diff = np.diff(myPoints, axis=1)
     myPointsNew[1] = myPoints[np.argmin(diff)] # w,0
     myPointsNew[2] = myPoints[np.argmax(diff)] # 0,h
-    print("diff",diff)
+    #print("diff",diff)
     return myPointsNew
