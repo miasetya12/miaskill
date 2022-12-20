@@ -68,7 +68,7 @@ def getCornerPoints(cont):
 def splitBoxes(img):
     boxes = []
     rows = np.vsplit(img,10) #baris
-   # cv2.imshow("row",rows[2])
+    # cv2.imshow("row",rows[9])
     for r in rows:
         cols = np.hsplit(r,5)
         for box in cols:

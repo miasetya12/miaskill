@@ -12,7 +12,7 @@ maxGrade = 100
 webcamFeed=True
 count = 0
 
-cap = cv.VideoCapture(0)
+cap = cv.VideoCapture(1)
 cap.set(10,150)
 
 
