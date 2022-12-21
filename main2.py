@@ -12,7 +12,7 @@ maxGrade = 100
 webcamFeed=True
 count = 0
 
-cap = cv.VideoCapture(1)
+cap = cv.VideoCapture(0)
 cap.set(10,150)
 
 
@@ -137,7 +137,7 @@ while True:
     except:   
         imgBlank = np.zeros_like(img)  
         imageArray = ([img, imgGray, imgBlur, imgCanny],
-                      [imgContours, imgBiggestContour, imgWarpColored, imgThresh],
+                    [imgContours, imgBiggestContour, imgWarpColored, imgThresh],
                     [imgResults, imgRawDrawing, imgInvWarp, imgFinal]
                     )
 
