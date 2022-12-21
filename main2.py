@@ -22,7 +22,7 @@ while True:
     else:
         img = cv.imread(path)
 
-    # PREPROCESSING
+    # TAHAP PREPROCESSING
     img = cv.resize(img, (lebar,tinggi))
     imgGray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
     imgBlur = cv.GaussianBlur(imgGray, (5,5),1)
@@ -32,7 +32,7 @@ while True:
     imgFinal = img.copy()
 
     try:
-        # FIND ALL CONTOURS
+        # MENCARI SEMUA CONTOURS
         contours, hierarchy, = cv.findContours(imgCanny, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
         cv.drawContours(imgContours, contours, -1, (0, 255, 0), 10) # DRAW ALL DETECTED CONTOURS
 
@@ -62,7 +62,7 @@ while True:
             matrixG = cv.getPerspectiveTransform(ptsG1, ptsG2)# GET TRANSFORMATION MATRIX
             imgGradeDisplay = cv.warpPerspective(img, matrixG, (325, 150)) # APPLY WARP PERSPECTIVE
 
-        #cv.imshow("Grade",imgGradeDisplay)
+            #cv.imshow("Grade",imgGradeDisplay)
 
             # Apply threshild
             imgWarpGray = cv.cvtColor(imgWarpColored, cv.COLOR_BGR2GRAY) # CONVERT TO GRAYSCALE
@@ -70,7 +70,6 @@ while True:
 
             boxes = utlis.splitBoxes(imgThresh) # GET INDIVIDUAL BOXES
             #cv.imshow("test", boxes[0])
-            #utlis.splitBoxes(im6
             #pixel value
             myPixelsVal = np.zeros((questions, choices)) # TO STORE THE NON ZERO VALUES OF EACH BOX
             countC = 0
