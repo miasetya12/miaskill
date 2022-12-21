@@ -22,7 +22,7 @@ while True:
     else:
         img = cv.imread(path)
 
-    # TAHAP PREPROCESSING
+    # PREPROCESSING
     img = cv.resize(img, (lebar,tinggi))
     imgGray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
     imgBlur = cv.GaussianBlur(imgGray, (5,5),1)
@@ -32,7 +32,7 @@ while True:
     imgFinal = img.copy()
 
     try:
-        # MENCARI SEMUA CONTOURS
+        # FIND ALL CONTOURS
         contours, hierarchy, = cv.findContours(imgCanny, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
         cv.drawContours(imgContours, contours, -1, (0, 255, 0), 10) # DRAW ALL DETECTED CONTOURS
 
